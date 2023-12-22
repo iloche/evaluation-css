@@ -11,11 +11,6 @@ header{
         border: none;
     }
 }
-.grid-content{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 1rem;
-}
 .nav-btn{
     display: flex;
     align-items: center;
@@ -37,6 +32,7 @@ header{
     }
 }
 .search-button{
+    display: none;
     margin-left: auto;
     a{
         color: black;
@@ -67,15 +63,13 @@ header{
    }
 }
 @media screen and (min-width:990px) {
-    .wrapper{
-        max-width: 690px;
-        margin: 0 auto;
-        width: 100%;
-    }
     .nav-title{
         display: contents;
     }
     .menu-burger{
         display: none;
+    }
+    .search-button{
+        display: inline;
     }
 }
