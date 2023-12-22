@@ -7,17 +7,14 @@ p{
 }
 .grid-content{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-    .politices{
-        grid-row: span 4;
-        grid-column: span 2;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    .grid-content-left{
+        grid-column: span 3;
     }
 }
 .popular{
     margin-top: 50px;
-    grid-row: span 4;
-    grid-column: span 2;
     .popular-content{
         display: flex;
         .popular-txt{
@@ -61,12 +58,15 @@ article{
         }
     }
 }
+.breaking-news{
+    margin-top: 100px;
+}
 .news-content{
     position: relative;
     .news-opacity{
         background-color: rgba(0, 0, 0, 0.479);
         width: 100%;
-        padding: 13px 0;
+        padding: 12px 0;
         z-index: 2;
         position: absolute;
         top: 0;
@@ -81,7 +81,7 @@ article{
         text-align: center;
         text-transform: uppercase;
         font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-        font-size: 14px;
+        font-size: 12px;
         width: 50%;
         margin: 0;
         font-weight: lighter;
@@ -163,7 +163,7 @@ article{
 }
 .grid-content-catg{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
 }
 .middle-content{
@@ -198,21 +198,24 @@ article{
             color: white;
         } 
         .zoom{
-            margin: 20px 0;
+            margin: 20px 0;     
         }
     }
-    .video-content{
-        position: relative;
-        &::after{
-            content: '';
-            background-color: rgba(0, 0, 0, 0.6);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            }
+}
+.video-content{
+    position: relative;
+    z-index: 1;
+    &::before{
+        content: '';
+        background-color: rgba(0, 0, 0, 0.6);
+        @include transition;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: -1;
         }
     }
     .video-txt{
@@ -224,6 +227,8 @@ article{
     }
 .page-title{
     background-color: $linecolor;
+    padding: 50px 0;
+    margin: 50px 0;
     .page-title-txt{
         display: flex;
         justify-content: space-between;
@@ -237,8 +242,26 @@ article{
 }
 .team-box{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 80px;
+}
+.team-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .job{
+        font-style: italic;
+        h2{
+            font-weight: lighter;
+            margin: 0;
+        }
+    }
+    .socials{
+        a{
+            padding: 0 5px;
+        }
+    }
 }
 .team-join{
     background-image: url(../images/cta.jpg);
@@ -284,20 +307,46 @@ article{
 }
 .address{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 2rem;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    small{
+        letter-spacing: 1px;
+        line-height: 1.7;
+        font-size: 16px;
+    }
 }
 .address-form{
     display: flex;
     flex-direction: column;
     grid-row: span 2;
+    grid-column: span 3;
+    input, textarea{
+        background-color: $linecolor;
+        border: none;
+        margin: 10px 0;
+        padding: 15px;
+    }
+    .more{
+        margin: 20px 0 40px 0;
+        a{
+            width: 100%;
+            display: block;
+            border: 2px solid black;
+            text-align: center;
+            &:hover{
+                color: $redcolor;
+                border: 2px solid $redcolor;
+            }
+        }
+    }
+}
+.address-info{
+    grid-column: span 2;
+}
+.address-phone{
+    grid-column: span 2;
 }
 iframe{
     width: 100%;
 }
-
-// @media screen and (min-width:500px) {
-//     .flex-content-catg{
-//         display: inline-block;
-//     }
-// }
